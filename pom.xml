@@ -97,5 +97,30 @@
         </pluginRepository>
     </pluginRepositories>
 
+    <profiles>
+        <profile>
+            <id>cloud-gcp</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-gcp-starter</artifactId>
+                    <version>1.2.8.RELEASE</version>
+                </dependency>
+            </dependencies>
 
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.google.cloud.tools</groupId>
+                        <artifactId>appengine-maven-plugin</artifactId>
+                        <version>2.2.0</version>
+                        <configuration>
+                            <deploy.projectId>xpass-challenge</deploy.projectId>
+                            <deploy.version>2</deploy.version>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
